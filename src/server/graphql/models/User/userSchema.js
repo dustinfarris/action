@@ -7,7 +7,7 @@ import {
   GraphQLID,
   GraphQLInt
 } from 'graphql';
-import {GraphQLEmailType, GraphQLURLType} from '../types';
+import {GraphQLEmailType, GraphQLURLType, GraphQLNameType} from 'universal/utils/graphQLScalars';
 import GraphQLISO8601Type from 'graphql-custom-datetype';
 import {TeamMember} from '../TeamMember/teamMemberSchema';
 import getRethink from 'server/database/rethinkDriver';
@@ -137,7 +137,7 @@ export const User = new GraphQLObjectType({
 const profileInputThunk = () => ({
   id: {type: GraphQLID, description: 'The unique userId'},
   preferredName: {
-    type: GraphQLString,
+    type: GraphQLNameType,
     description: 'The name, as confirmed by the user'
   }
 });

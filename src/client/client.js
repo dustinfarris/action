@@ -6,11 +6,17 @@ import makeStore from './makeStore';
 import Root from './Root';
 import {StyleSheet} from 'aphrodite-local-styles/no-important';
 import cashaySchema from 'cashay!../server/utils/getCashaySchema.js';
+import * as types from 'universal/utils/graphQLScalars';
+import makeSanitize from './sanitize';
 
 // const {routing} = window.__INITIAL_STATE__; // eslint-disable-line no-underscore-dangle
 const initialState = {};
-
-
+const sanitize = makeSanitize(cashaySchema, types);
+const testValue = {
+  preferredName: 'foofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoo'
+};
+sanitize(testValue, 'UpdateUserInput');
+console.log(cashaySchema, types)
 (async() => {
   const store = await makeStore(initialState);
   // Create the Cashay singleton:

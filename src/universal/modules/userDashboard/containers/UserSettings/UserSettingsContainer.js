@@ -10,6 +10,7 @@ import {
 import {reduxForm, initialize} from 'redux-form';
 import {cashay} from 'cashay';
 import {withRouter} from 'react-router';
+import sanitize from 'client/sanitize';
 
 const updateSuccess = {
   title: 'Settings saved!',
@@ -25,9 +26,13 @@ const mapStateToProps = (state) => {
   };
 };
 
+const validate = (values) => {
+  return sanitize(values);
+};
+
 @requireAuth
 @connect(mapStateToProps)
-@reduxForm({form: 'userSettings'})
+@reduxForm({form: 'userSettings', validate})
 @withRouter
 export default class UserSettingsContainer extends Component {
   static propTypes = {

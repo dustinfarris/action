@@ -6,7 +6,7 @@ import {
   GraphQLString,
   GraphQLInt
 } from 'graphql';
-import {GraphQLURLType} from '../types';
+import {GraphQLURLType} from 'universal/utils/graphQLScalars';
 import {Team} from '../Team/teamSchema';
 import {User} from '../User/userSchema';
 import {Project} from '../Project/projectSchema';
