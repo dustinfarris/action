@@ -16,13 +16,13 @@ import trim from 'universal/utils/formFieldTrimmer';
 
 const quickValidation = (values) => {
   const errors = {};
-  const {teamName, invitedTeamMembers} = values;
+  const {teamName} = values;
   if (!teamName) {
     errors.teamName = 'Oops! Please add a team name.';
   }
-  if (!invitedTeamMembers) {
-    errors.invitedTeamMembers = 'Oops! Please check for valid email addresses.';
-  }
+  // if (!invitedTeamMembers) {
+  //   errors.invitedTeamMembers = 'Oops! Please check for valid email addresses.';
+  // }
   return errors;
 };
 
